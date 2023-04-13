@@ -29,7 +29,7 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-     - [🚀 Live Demo](#live-demo)
+    - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -50,7 +50,6 @@ After you're finished please remove all the comments and instructions!
 
 **To Do List_Jest Test!** The aim of this project is to apply the Jest test on Add and Delete functions of todo list projects where you can add tasks and remove tasks and see them in a list.
 
-
 ## 🛠 Built With <a name="built-with">
 
 - HTML
@@ -62,13 +61,11 @@ After you're finished please remove all the comments and instructions!
 
 ### Tech Stack <a name="tech-stack"></a>
 
-
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
 - **[Add & Remove function Tasted using Jest]**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,8 +92,7 @@ In order to run this project you need:
 - clone the project using by running the following command :
 
 `git clone`
-`https://github.com/Jawad-Nazari/ToDoList-Test/tree/Test_Jest1`
-
+`https://github.com/Jawad-Nazari/ToDoList-Test/tree/Test_Jest1
 
 
 <!-- AUTHORS -->
@@ -124,14 +120,12 @@ In order to run this project you need:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
 # **[Feature-1]** 
 - More jest tests will be done for other fucntions
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -148,7 +142,6 @@ Feel free to check the [issues page](../../issues/).
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
-
 
 Give a ⭐️ if you like this project!
 
@@ -169,5 +162,5 @@ Give a ⭐️ if you like this project!
 This project is [MIT](./MIT.md) licensed.
 
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
