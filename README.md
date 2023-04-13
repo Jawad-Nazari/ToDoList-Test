@@ -109,7 +109,7 @@ In order to run this project you need:
 
 - GitHub: [@Cisco-the-wayword](https://github.com/Cisco-the-wayword)
 - Twitter: [@the_wayword1](https://twitter.com/the_wayword1)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/boluwatife-adegboyega-9397a81b3?
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/boluwatife-adegboyega-9397a81b3?)
 
 👤 **Naan Mohammed**
 
