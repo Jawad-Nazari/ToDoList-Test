@@ -1,63 +1,52 @@
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-const mytaskList = document.getElementById('myTasksList');
-
-const displayTask = () => {
+export const displayTask = () => {
+  const mytaskList = document.querySelector('.myTasksList');
+  const taskArray = JSON.parse(localStorage.getItem('taskArray')) || [];
+  taskArray.sort((a, b) => a.index - b.index);
   mytaskList.innerHTML = '';
-  tasks.forEach((task) => {
-    const taskContainer = document.createElement('div');
-    taskContainer.classList = 'content';
-    taskContainer.index = `${task.index}`;
-    taskContainer.innerHTML = `<div class="taskInput" id='${task.index}'>
-                          <input type="checkbox"></input>
-                            <input id="info" class="${task.completed === true ? 'taskCmpleted' : 'edit'}"
-                              type="text" value="${task.description}">
-                            </input>
-                          </div>
-                          <i class="fa-solid fa-trash-can deleteTask" id="removeTask"></i>`;
-    const info = document.getElementById('info');
-    if (task.completed === true) {
-      info.classList.add('taskCompleted');
+  for (let i = 0; i < taskArray.length; i += 1) {
+    const html = `
+      <div class="addTask">
+        <input type="checkbox" class="Input-checkbox">
+        <input type="text" class="input-text" value="${taskArray[i].description}">
+        <span class="delete-task-icon">&#x1F5D1;</span>
+      </div>
+    `;
+    mytaskList.innerHTML += html;
+  }
+};
+
+// ADD A NEW TASK
+export const addTasks = (addTask) => {
+  const addTaskInput = document.querySelector('.addInput');
+  if (addTask !== '') {
+    const taskArray = JSON.parse(localStorage.getItem('taskArray')) || [];
+    taskArray.push({ completed: false, description: addTask });
+    for (let i = 1; i <= taskArray.length; i += 1) {
+      taskArray[i - 1].index = i;
     }
-    mytaskList.appendChild(taskContainer);
-  });
-};
-
-const newTask = document.getElementById('input');
-const addTask = (e) => {
-  if (e.key === 'Enter' || e === 'clicked') {
-    const taskItem = {
-      description: newTask.value,
-      completed: false,
-      index: tasks.length + 1,
-    };
-    newTask.value = '';
-    tasks = [...tasks, taskItem];
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    displayTask();
+    localStorage.setItem('taskArray', JSON.stringify(taskArray));
+    addTaskInput.value = '';
+    displayTask(); // added to display new task
   }
 };
 
-const editTask = (index, event) => {
-  if (event.target.value === '') return;
-  if (event.key === 'Enter') {
-    tasks[index - 1].description = event.target.value;
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+// DELETE A TASK
+export const deleteTask = (index) => {
+  const taskArray = JSON.parse(localStorage.getItem('taskArray')) || [];
+  taskArray.splice(index, 1);
+  for (let i = 1; i <= taskArray.length; i += 1) {
+    taskArray[i - 1].index = i;
   }
-};
-
-const deleteTask = (targetIndex) => {
-  const listFiltered = tasks.filter((item) => +item.index !== +targetIndex);
-  const newList = listFiltered.map((item, index) => ({
-    description: item.description,
-    completed: item.completed,
-    index: index + 1,
-  }));
-  tasks = newList;
-  localStorage.setItem('tasks', JSON.stringify(newList));
+  localStorage.setItem('taskArray', JSON.stringify(taskArray));
   displayTask();
 };
 
-export {
-  displayTask, addTask, editTask, deleteTask,
+// editTask A TASK
+export const editTask = (index) => {
+  const taskArray = JSON.parse(localStorage.getItem('taskArray')) || [];
+  const textInputs = document.querySelectorAll('.input-text');
+  textInputs[index].addEventListener('change', () => {
+    taskArray[index].description = textInputs[index].value;
+    localStorage.setItem('taskArray', JSON.stringify(taskArray));
+  });
 };

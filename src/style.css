@@ -47,6 +47,11 @@ i {
   padding-bottom: 5px;
 }
 
+.addTask {
+  display: flex;
+  justify-content: space-between;
+}
+
 .form {
   display: flex;
   justify-content: space-between;
@@ -57,7 +62,8 @@ i {
   border-bottom: #ddd 1.5px solid;
 }
 
-.form input {
+.input-text,
+form input {
   width: 85%;
   font-size: 1.2rem;
   font-style: italic;
@@ -75,9 +81,20 @@ i {
   padding-bottom: 2%;
 }
 
+.addInput {
+  display: flex;
+  width: 95%;
+  height: 6vh;
+  border: none;
+}
+
 .taskInput {
   display: flex;
-  width: 90%;
+  justify-content: space-around;
+}
+
+.delete-task-icon {
+  justify-content: flex-end;
 }
 
 #info {
@@ -110,6 +127,13 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.add-button,
+.Input-checkbox,
+.delete-task-icon,
+footer {
+  cursor: pointer;
 }
 
 .btn {

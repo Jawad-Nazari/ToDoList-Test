@@ -1,36 +1,46 @@
 import './style.css';
+
 import {
-  displayTask, addTask, editTask, deleteTask,
+  addTasks, displayTask, deleteTask, editTask,
 } from './modules/displayTask.js';
 
-const tasksList = document.getElementById('myTasksList');
-const newTask = document.getElementById('input');
-const submit = document.getElementById('submit');
-
-newTask.addEventListener('keypress', (e) => {
-  addTask(e);
+// ADD A NEW TASK
+const addButton = document.querySelector('.addBtn'); // clicking add button
+addButton.addEventListener('click', () => {
+  const addTask = document.querySelector('.addInput');
+  addTasks(addTask.value);
 });
 
-submit.addEventListener('click', () => {
-  addTask('clicked');
-});
-
-tasksList.addEventListener('click', (event) => {
-  const clickedItem = event.target.classList[event.target.classList.length - 1];
-  const li = event.target.parentElement;
-  if (clickedItem === 'deleteTask') {
-    deleteTask(li.index);
-    event.target.parentElement.remove();
+const addTask = document.querySelector('.addInput'); // typing enter key
+addTask.addEventListener('keydown', (event) => {
+  if (event.keyCode === 13) {
+    const taskValue = addTask.value;
+    addTasks(taskValue);
+    displayTask();
   }
 });
 
-tasksList.addEventListener('keypress', (event) => {
-  const taskToEdit = event.target.classList[event.target.classList.length - 1];
-  const li = event.target.parentElement;
-  const index = li.id;
-  if (taskToEdit === 'edit') {
-    editTask(index, event);
+// DELETE A TASK
+const mytaskList = document.querySelector('.myTasksList');
+
+mytaskList.addEventListener('click', (event) => {
+  const deleteTaskIcon = event.target.closest('.delete-task-icon');
+  if (deleteTaskIcon) {
+    const deleteTaskIcons = mytaskList.querySelectorAll('.delete-task-icon');
+    const index = Array.from(deleteTaskIcons).indexOf(deleteTaskIcon);
+    deleteTask(index);
   }
 });
 
-document.addEventListener('DOMContentLoaded', displayTask());
+// EDIT A TASK
+mytaskList.addEventListener('click', (event) => {
+  const textInput = event.target.closest('.input-text');
+  if (textInput) {
+    const textInputs = mytaskList.querySelectorAll('.input-text');
+    const index = Array.from(textInputs).indexOf(textInput);
+    editTask(index);
+  }
+});
+
+// FIRST DISPLAY TASK WHEN THE PAGE LOADS
+window.onload = displayTask;
