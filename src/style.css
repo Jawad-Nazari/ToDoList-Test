@@ -27,7 +27,7 @@ i {
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  width: 40%;
+  width: 30%;
   background-color: #ffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -49,22 +49,43 @@ i {
 
 .addTask {
   display: flex;
-  justify-content: space-between;
+  align-content: flex-start;
+  width: 100%;
 }
 
-.form {
+.input {
+  border: none;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 99%;
+}
+
+ul li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 2%;
-  padding-bottom: 2%;
-  border-bottom: #ddd 1.5px solid;
 }
 
-.input-text,
-form input {
-  width: 85%;
+ul li div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #ffff;
+}
+
+.delete-icons {
+  color: black;
+  margin-right: 2px;
+}
+
+.Task-item-each {
+  width: 100%;
   font-size: 1.2rem;
   font-style: italic;
   padding-left: 1%;
@@ -72,39 +93,48 @@ form input {
   border: none;
 }
 
-.content {
+.form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2%;
+  padding-bottom: 2%;
+  border-bottom: #ddd 1.5px solid;
+}
+
+.form input {
+  width: 100%;
+  font-size: 1.2rem;
+  font-style: italic;
+  padding-left: 1%;
+  outline: none;
+
+  /* border: none; */
+}
+
+.delete {
+  margin-right: 2px;
+}
+
+/* .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px #ddd solid;
   margin-bottom: 2%;
   padding-bottom: 2%;
-}
+} */
 
-.addInput {
-  display: flex;
-  width: 95%;
-  height: 6vh;
-  border: none;
-}
 
-.taskInput {
-  display: flex;
-  justify-content: space-around;
-}
 
-.delete-task-icon {
-  justify-content: flex-end;
-}
-
-#info {
+/* #info {
   padding-left: 5px;
   width: 100%;
   font-style: normal;
   font-weight: 300;
-}
+} */
 
-.taskCompleted {
+/* .taskCompleted {
   text-decoration: line-through;
   outline: none;
   border: none;
@@ -112,29 +142,25 @@ form input {
   margin-top: 2%;
   font-weight: 600;
   font-size: 1rem;
-}
+} */
 
-.edit {
+/* .editTask {
   outline: none;
   border: none;
   margin-left: 2%;
   margin-top: 2%;
   font-weight: 600;
   font-size: 1rem;
-}
+} */
 
-.clear {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-button,
-.Input-checkbox,
-.delete-task-icon,
-footer {
-  cursor: pointer;
-}
+/* .edit {
+  outline: none;
+  border: none;
+  margin-left: 2%;
+  margin-top: 2%;
+  font-weight: 600;
+  font-size: 1rem;
+} */
 
 .btn {
   width: 100%;
@@ -145,6 +171,9 @@ footer {
   background-color: #dbe1ec;
   font-size: 1rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn:hover {
