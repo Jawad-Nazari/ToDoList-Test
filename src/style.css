@@ -108,59 +108,11 @@ ul li div {
   font-style: italic;
   padding-left: 1%;
   outline: none;
-
-  /* border: none; */
 }
 
 .delete {
   margin-right: 2px;
 }
-
-/* .content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px #ddd solid;
-  margin-bottom: 2%;
-  padding-bottom: 2%;
-} */
-
-
-
-/* #info {
-  padding-left: 5px;
-  width: 100%;
-  font-style: normal;
-  font-weight: 300;
-} */
-
-/* .taskCompleted {
-  text-decoration: line-through;
-  outline: none;
-  border: none;
-  margin-left: 2%;
-  margin-top: 2%;
-  font-weight: 600;
-  font-size: 1rem;
-} */
-
-/* .editTask {
-  outline: none;
-  border: none;
-  margin-left: 2%;
-  margin-top: 2%;
-  font-weight: 600;
-  font-size: 1rem;
-} */
-
-/* .edit {
-  outline: none;
-  border: none;
-  margin-left: 2%;
-  margin-top: 2%;
-  font-weight: 600;
-  font-size: 1rem;
-} */
 
 .btn {
   width: 100%;
