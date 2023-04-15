@@ -1,46 +1,65 @@
 import './style.css';
+import displayTask from './modules/displayTask.js';
+import { updateTask, deleteTask, editTask } from './modules/statusUpdate.js';
+import { completedTasks } from './modules/completedTasks.js';
 
-import {
-  addTasks, displayTask, deleteTask, editTask,
-} from './modules/displayTask.js';
+const myTaskList = document.querySelector('#myTaskList');
+const inputTask = document.querySelector('.input');
+const Form = document.querySelector('.form');
+const btn = document.querySelector('.btn');
 
-// ADD A NEW TASK
-const addButton = document.querySelector('.addBtn'); // clicking add button
-addButton.addEventListener('click', () => {
-  const addTask = document.querySelector('.addInput');
-  addTasks(addTask.value);
-});
-
-const addTask = document.querySelector('.addInput'); // typing enter key
-addTask.addEventListener('keydown', (event) => {
-  if (event.keyCode === 13) {
-    const taskValue = addTask.value;
-    addTasks(taskValue);
-    displayTask();
+let taskList = [];
+function getTasks() {
+  if (localStorage.getItem('Tasks')) {
+    taskList = JSON.parse(localStorage.getItem('Tasks'));
   }
-});
+}
 
-// DELETE A TASK
-const mytaskList = document.querySelector('.myTasksList');
+getTasks();
 
-mytaskList.addEventListener('click', (event) => {
-  const deleteTaskIcon = event.target.closest('.delete-task-icon');
-  if (deleteTaskIcon) {
-    const deleteTaskIcons = mytaskList.querySelectorAll('.delete-task-icon');
-    const index = Array.from(deleteTaskIcons).indexOf(deleteTaskIcon);
-    deleteTask(index);
+function addTaskToList(Task) {
+  taskList.push(Task);
+}
+
+function addTask() {
+  Form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    getTasks();
+    addTaskToList({
+      discription: inputTask.value,
+      index: taskList.length !== 0 ? taskList[taskList.length - 1].index + 1 : 1,
+      completed: false,
+    });
+    localStorage.setItem('Tasks', JSON.stringify(taskList));
+    getTasks();
+    displayTask(taskList, myTaskList);
+    updateTask(taskList, displayTask, myTaskList);
+    inputTask.value = '';
+  });
+}
+
+function clearCompleted(taskList) {
+  const newK = taskList.filter((item) => !item.completed);
+  for (let i = 0; i < newK.length; i += 1) {
+    newK[i].index = i + 1;
   }
+
+  return newK;
+}
+
+btn.addEventListener('click', () => {
+  getTasks();
+  taskList = clearCompleted(taskList);
+  localStorage.setItem('Tasks', JSON.stringify(taskList));
+
+  displayTask(taskList, myTaskList);
+  updateTask(taskList, displayTask, myTaskList);
 });
 
-// EDIT A TASK
-mytaskList.addEventListener('click', (event) => {
-  const textInput = event.target.closest('.input-text');
-  if (textInput) {
-    const textInputs = mytaskList.querySelectorAll('.input-text');
-    const index = Array.from(textInputs).indexOf(textInput);
-    editTask(index);
-  }
-});
+addTask();
+displayTask(taskList, myTaskList);
+updateTask(taskList, displayTask, myTaskList);
 
-// FIRST DISPLAY TASK WHEN THE PAGE LOADS
-window.onload = displayTask;
+export {
+  addTaskToList, deleteTask, completedTasks, addTask, editTask,
+};
