@@ -126,6 +126,8 @@ In order to run this project you need:
 
 # **[Feature-1]** 
 - More jest tests will be done for other fucntions
+# **[Feature-2]** 
+- Coverage for the tests will be made closer to 100%
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
