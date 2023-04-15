@@ -46,9 +46,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [To_Do_List: Testing Add & Delete functions using Jest] <a name="about-project"></a>
+# 📖 [To_Do_List: Testing Edit & Clear and Update functions using Jest] <a name="about-project"></a>
 
-**To Do List_Jest Test!** The aim of this project is to apply the Jest test on Add and Delete functions of todo list projects where you can add tasks and remove tasks and see them in a list.
+**To Do List_Jest Test!** The aim of this project is to apply the Jest test on Add and Delete and update functions of todo list projects where you can add tasks and remove tasks and see them in a list.
 
 ## 🛠 Built With <a name="built-with">
 
@@ -92,7 +92,7 @@ In order to run this project you need:
 - clone the project using by running the following command :
 
 `git clone`
-`https://github.com/Jawad-Nazari/ToDoList-Test/tree/Test_Jest1
+`https://github.com/Jawad-Nazari/ToDoList-Test
 
 
 <!-- AUTHORS -->
